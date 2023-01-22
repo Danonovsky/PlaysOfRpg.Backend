@@ -7,7 +7,7 @@ using Attribute = CharacterModule.Entities.Attribute;
 
 namespace CharacterModule.Endpoints;
 
-public class AttributeEndpointDefinition : IEndpointDefinition
+public class AttributeEndpoint : IEndpoint
 {
     private const string Route = "api/attribute";
 

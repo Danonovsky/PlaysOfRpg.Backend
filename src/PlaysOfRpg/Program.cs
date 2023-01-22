@@ -1,11 +1,11 @@
 using Abstractions.Services;
+using Infrastructure.Endpoints;
 using Attribute = CharacterModule.Entities.Attribute;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddEndpointDefinitions(typeof(Attribute));
+builder.Services.AddEndpoints(typeof(Attribute),typeof(SwaggerEndpoint));
 
 var app = builder.Build();
-app.UseEndpointDefinitions();
-app.MapGet("/", () => "Plays of Rpg!");
+app.UseEndpoints();
 
 app.Run();
