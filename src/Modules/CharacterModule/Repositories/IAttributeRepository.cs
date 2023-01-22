@@ -1,5 +1,5 @@
 ﻿using Abstractions.Repositories;
-using Attribute = CharacterModule.Entities.Attribute;
+using Attribute = CharacterModule.DAL.Entities.Attribute;
 
 namespace CharacterModule.Repositories;
 

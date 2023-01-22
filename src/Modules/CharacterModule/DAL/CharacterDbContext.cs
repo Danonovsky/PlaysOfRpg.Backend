@@ -1,6 +1,6 @@
 ﻿using Infrastructure.EF;
 using Microsoft.EntityFrameworkCore;
-using Attribute = CharacterModule.Entities.Attribute;
+using Attribute = CharacterModule.DAL.Entities.Attribute;
 
 namespace CharacterModule.DAL;
 

@@ -1,4 +1,4 @@
-﻿using Attribute = CharacterModule.Entities.Attribute;
+﻿using Attribute = CharacterModule.DAL.Entities.Attribute;
 
 namespace CharacterModule.Repositories;
 
@@ -24,8 +24,8 @@ internal class InMemoryAttributeRepository : IAttributeRepository
             return;
         }
 
-        await DeleteAsync(id);
-        await AddAsync(model);
+        attribute.Name = model.Name;
+        attribute.Value = model.Value;
     }
 
     public async Task DeleteAsync(Guid id) 

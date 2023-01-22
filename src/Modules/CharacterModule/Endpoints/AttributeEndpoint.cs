@@ -3,7 +3,7 @@ using CharacterModule.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Attribute = CharacterModule.Entities.Attribute;
+using Attribute = CharacterModule.DAL.Entities.Attribute;
 
 namespace CharacterModule.Endpoints;
 
