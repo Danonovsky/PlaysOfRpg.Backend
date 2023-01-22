@@ -1,6 +1,9 @@
 ﻿using Abstractions.Services;
+using CharacterModule.DAL;
 using CharacterModule.Repositories;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Attribute = CharacterModule.DAL.Entities.Attribute;
@@ -10,6 +13,12 @@ namespace CharacterModule.Endpoints;
 public class AttributeEndpoint : IEndpoint
 {
     private const string Route = "api/attribute";
+    private readonly IConfiguration _configuration;
+
+    public AttributeEndpoint(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
 
     public void DefineEndpoints(WebApplication app)
     {
@@ -21,6 +30,17 @@ public class AttributeEndpoint : IEndpoint
     }
     public void DefineServices(IServiceCollection services)
     {
+        var environment = Environment.GetEnvironmentVariables();
+        var connectionString = _configuration.GetConnectionString("PlaysOfRpg");
+        connectionString = string.Format(connectionString,
+            environment["DATABASE_HOST"],
+            environment["DATABASE_NAME"],
+            environment["DATABASE_USER"],
+            environment["DATABASE_PASSWORD"]);
+        services.AddDbContext<CharacterDbContext>(o =>
+        {
+            o.UseNpgsql(connectionString);
+        });
         services.TryAddSingleton<IAttributeRepository, InMemoryAttributeRepository>();
     }
 }

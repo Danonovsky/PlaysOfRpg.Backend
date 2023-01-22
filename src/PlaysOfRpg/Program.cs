@@ -14,7 +14,6 @@ var app = builder.Build();
 app.UseEndpoints();
 
 app.Run();
-
 void LoadAssemblies()
 {
     var directory = new DirectoryInfo(AppContext.BaseDirectory);
