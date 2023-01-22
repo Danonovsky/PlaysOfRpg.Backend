@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Modules\CharacterModule\CharacterModule.csproj" />
-      <ProjectReference Include="..\Shared\Abstractions\Abstractions.csproj" />
       <ProjectReference Include="..\Shared\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
 
