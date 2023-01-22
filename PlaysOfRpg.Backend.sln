@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{B5B1B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaysOfRpg", "src\PlaysOfRpg\PlaysOfRpg.csproj", "{A9E61226-FC64-4212-8A1C-6AD6FD3518DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharactersModule", "src\Modules\CharactersModule\CharactersModule.csproj", "{F1B5D7D7-C7C5-4C94-83C4-2AB6DBEC5DCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterModule", "src\Modules\CharacterModule\CharacterModule.csproj", "{F1B5D7D7-C7C5-4C94-83C4-2AB6DBEC5DCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstractions", "src\Shared\Abstractions\Abstractions.csproj", "{205AF612-93A9-42FE-8F64-99D8F209C734}"
 EndProject

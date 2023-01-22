@@ -2,7 +2,7 @@
 
 namespace CharactersModule.Repositories;
 
-internal class MemoryAttributeRepository : IAttributeRepository
+internal class InMemoryAttributeRepository : IAttributeRepository
 {
     private readonly List<Attribute> _attributes = new();
 
@@ -15,7 +15,7 @@ internal class MemoryAttributeRepository : IAttributeRepository
     public async Task AddAsync(Attribute model) 
         => _attributes.Add(model);
 
-    public async Task EditAsync(Guid id, Attribute model)
+    public async Task UpdateAsync(Guid id, Attribute model)
     {
         var attribute = await GetByIdAsync(id);
         if (attribute is null)
