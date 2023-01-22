@@ -1,7 +1,7 @@
 ﻿using Abstractions.Repositories;
-using Attribute = CharactersModule.Entities.Attribute;
+using Attribute = CharacterModule.Entities.Attribute;
 
-namespace CharactersModule.Repositories;
+namespace CharacterModule.Repositories;
 
 public interface IAttributeRepository : ICrudRepository<Attribute>
 {

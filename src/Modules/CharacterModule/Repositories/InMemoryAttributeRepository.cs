@@ -1,6 +1,6 @@
-﻿using Attribute = CharactersModule.Entities.Attribute;
+﻿using Attribute = CharacterModule.Entities.Attribute;
 
-namespace CharactersModule.Repositories;
+namespace CharacterModule.Repositories;
 
 internal class InMemoryAttributeRepository : IAttributeRepository
 {

@@ -1,6 +1,6 @@
 ﻿using Abstractions.Models;
 
-namespace CharactersModule.Entities;
+namespace CharacterModule.Entities;
 
 public class Profession : BaseEntity
 {

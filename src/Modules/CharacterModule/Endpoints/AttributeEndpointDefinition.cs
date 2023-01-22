@@ -1,9 +1,9 @@
 ﻿using Abstractions.Services;
-using CharactersModule.Repositories;
+using CharacterModule.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Attribute = CharactersModule.Entities.Attribute;
+using Attribute = CharacterModule.Entities.Attribute;
 
 namespace CharacterModule.Endpoints;
 

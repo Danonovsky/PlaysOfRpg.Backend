@@ -1,5 +1,5 @@
 using Abstractions.Services;
-using Attribute = CharactersModule.Entities.Attribute;
+using Attribute = CharacterModule.Entities.Attribute;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointDefinitions(typeof(Attribute));

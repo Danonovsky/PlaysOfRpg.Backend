@@ -1,4 +1,4 @@
-﻿namespace CharactersModule;
+﻿namespace CharacterModule;
 
 public class Extensions
 {
