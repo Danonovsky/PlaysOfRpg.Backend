@@ -13,8 +13,9 @@ public class SwaggerEndpoint : IEndpoint
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlaysOfRpg v1"));
     }
 
-    public void DefineServices(IServiceCollection services)
+    public void DefineServices(WebApplicationBuilder builder)
     {
+        var services = builder.Services;
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Abstractions.Services;
@@ -6,12 +7,12 @@ namespace Abstractions.Services;
 public interface IEndpoint
 {
     void DefineEndpoints(WebApplication app);
-    void DefineServices(IServiceCollection services);
+    void DefineServices(WebApplicationBuilder builder);
 }
 
 public static class EndpointExtensions
 {
-    public static void AddEndpoints(this IServiceCollection services, params Type[] scanMarkers)
+    public static void AddEndpoints(this WebApplicationBuilder builder, params Type[] scanMarkers)
     {
         var endpoints = new List<IEndpoint>();
         foreach (var marker in scanMarkers)
@@ -24,10 +25,10 @@ public static class EndpointExtensions
 
         foreach (var endpoint in endpoints)
         {
-            endpoint.DefineServices(services);
+            endpoint.DefineServices(builder);
         }
 
-        services.AddSingleton(endpoints as IReadOnlyCollection<IEndpoint>);
+        builder.Services.AddSingleton(endpoints as IReadOnlyCollection<IEndpoint>);
     }
 
     public static void UseEndpoints(this WebApplication app)

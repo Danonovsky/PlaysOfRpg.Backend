@@ -13,12 +13,6 @@ namespace CharacterModule.Endpoints;
 public class AttributeEndpoint : IEndpoint
 {
     private const string Route = "api/attribute";
-    private readonly IConfiguration _configuration;
-
-    public AttributeEndpoint(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
 
     public void DefineEndpoints(WebApplication app)
     {
@@ -28,10 +22,11 @@ public class AttributeEndpoint : IEndpoint
         app.MapPut($"{Route}/{{id:guid}}", async (IAttributeRepository repo,Guid id, Attribute model) => await repo.UpdateAsync(id,model));
         app.MapDelete($"{Route}/{{id:guid}}", async (IAttributeRepository repo, Guid id) => await repo.DeleteAsync(id));
     }
-    public void DefineServices(IServiceCollection services)
+    public void DefineServices(WebApplicationBuilder builder)
     {
+        var services = builder.Services;
         var environment = Environment.GetEnvironmentVariables();
-        var connectionString = _configuration.GetConnectionString("PlaysOfRpg");
+        var connectionString = builder.Configuration.GetConnectionString("PlaysOfRpg");
         connectionString = string.Format(connectionString,
             environment["DATABASE_HOST"],
             environment["DATABASE_NAME"],

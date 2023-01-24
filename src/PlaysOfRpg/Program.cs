@@ -8,7 +8,7 @@ var types = AppDomain.CurrentDomain.GetAssemblies()
     .SelectMany(_ => _.GetExportedTypes())
     .Where(_ => _.IsAssignableTo(type) && _.IsInterface is false)
     .ToArray();
-builder.Services.AddEndpoints(types);
+builder.AddEndpoints(types);
 
 var app = builder.Build();
 app.UseEndpoints();
