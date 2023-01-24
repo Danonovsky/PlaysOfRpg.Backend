@@ -1,6 +1,6 @@
 ﻿using Abstractions.Services;
 using CharacterModule.DAL;
-using CharacterModule.Repositories;
+using CharacterModule.Repositories.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +36,6 @@ public class AttributeEndpoint : IEndpoint
         {
             o.UseNpgsql(connectionString);
         });
-        services.TryAddSingleton<IAttributeRepository, InMemoryAttributeRepository>();
+        services.TryAddSingleton<IAttributeRepository, PostgresAttributeRepository>();
     }
 }

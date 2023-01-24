@@ -1,19 +1,22 @@
 ﻿using Attribute = CharacterModule.DAL.Entities.Attribute;
 
-namespace CharacterModule.Repositories;
+namespace CharacterModule.Repositories.Attributes;
 
 internal class InMemoryAttributeRepository : IAttributeRepository
 {
     private readonly List<Attribute> _attributes = new();
 
-    public async Task<List<Attribute>> GetAllAsync()
-        => _attributes;
+    public Task<List<Attribute>> GetAllAsync()
+        => Task.FromResult(_attributes);
 
-    public async Task<Attribute?> GetByIdAsync(Guid id)
-        => _attributes.FirstOrDefault(_ => _.Id == id);
+    public Task<Attribute?> GetByIdAsync(Guid id)
+        => Task.FromResult(_attributes.FirstOrDefault(_ => _.Id == id));
 
-    public async Task AddAsync(Attribute model) 
-        => _attributes.Add(model);
+    public Task AddAsync(Attribute model)
+    {
+        _attributes.Add(model);
+        return Task.CompletedTask;
+    }
 
     public async Task UpdateAsync(Guid id, Attribute model)
     {
@@ -28,6 +31,6 @@ internal class InMemoryAttributeRepository : IAttributeRepository
         attribute.Value = model.Value;
     }
 
-    public async Task DeleteAsync(Guid id) 
-        => _attributes.RemoveAll(_ => _.Id == id);
+    public Task DeleteAsync(Guid id) 
+        => Task.FromResult(_attributes.RemoveAll(_ => _.Id == id));
 }

@@ -8,6 +8,12 @@ public class Attribute : BaseEntity
     public int Value { get; set; }
 
     public AttributeDto AsDto => new AttributeDto(Id, Name, Value);
+
+    public void Update(Attribute update)
+    {
+        Name = update.Name;
+        Value = update.Value;
+    }
 }
 
 public record AddAttribute(string Name, int Value);
